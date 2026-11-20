@@ -101,7 +101,7 @@
 /* feature panels hold the client's own screens */
 #features .panel { --p-h: 300px; }
 .panel--shot .frame__img { object-fit: cover; object-position: 0 0; }
-@media (max-width: 639px) { #features .panel { --p-h: 200px; } }
+@media (max-width: 639px) { #features .panel { --p-h: 168px; } }
 /* the studio split: the screenshot cut by the frame's right and bottom */
 .sp-shot { position: absolute; left: var(--ax); top: var(--ay); width: 1100px; max-width: none; border-radius: 12px; box-shadow: 0 24px 48px -16px rgb(0 0 0 / .45); }
 @media (max-width: 639px) { .sp-shot { width: 640px; left: 24px; top: 24px; } }
@@ -151,6 +151,19 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
 .sp-phonef .dev-img { position: absolute; inset: 16px; width: calc(100% - 32px); height: calc(100% - 32px); }
 @media (max-width: 639px) { .sp-phonef { height: 520px; } .sp-studiof { aspect-ratio: 3 / 2; } }
 @media (max-width: 639px) { .hero--split .hero__kicker { display: none; } .sp-payf { min-height: 420px; } }
+/* the app's bottom strip: tempo display and four keys with their actions */
+.sp-song__body { grid-template-columns: minmax(0, 1fr) !important; }
+.sp-strip { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 10px; padding: 10px 12px 12px; border-top: 1px solid var(--u-line); background: linear-gradient(180deg, #24272d, #16181c); }
+.sp-strip .sp-lcd { align-self: stretch; }
+.sp-keys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.sp-k { display: grid; gap: 4px; padding: 7px 9px 8px; border-radius: 9px; background: linear-gradient(180deg, #3b3f47, #24272d); border: 1px solid #0b0c0e; box-shadow: inset 0 1px 0 rgb(255 255 255 / .12), 0 4px 0 #0b0c0e; min-width: 0; }
+.sp-k__n { font: 800 10px/1 var(--font-mono); color: #b4b9c2; letter-spacing: .08em; }
+.sp-k__l { display: flex; align-items: center; gap: 6px; font: 600 12.5px/1.25 var(--font-text); color: #e8eaee; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-k__l.off { color: #a3a8b1; }
+.sp-k__l i { width: 7px; height: 7px; border-radius: 50%; background: #14161a; flex: none; }
+.sp-k__l.on { color: #ffc233; } .sp-k__l.on i { background: #ffc233; box-shadow: 0 0 8px 2px rgb(255 194 51 / .7); }
+@media (max-width: 1279px) { .sp-strip { grid-template-columns: 110px minmax(0, 1fr); } .sp-k__l { font-size: 11.5px; } }
+@media (max-width: 639px) { .sp-strip { grid-template-columns: minmax(0, 1fr); } .sp-strip .sp-lcd { display: none; } .sp-keys { gap: 5px; } .sp-k { padding: 6px; } .sp-k__l.off { display: none; } .sp-k__l { font-size: 10.5px; gap: 4px; } }
 </style>
 </head><body>
 <!-- type: software · deal: hero split, nav nav-mega, close close-type, footer footer-statement, rhythm dark-band, buttons solid, mark: the client's own logo; grounds none; effect none; moment line-carries-colour (#studio) -->
@@ -183,7 +196,7 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
 
   <section class="section" id="app" aria-labelledby="app-h">
     <div class="wrap">
-      <div class="grid grid--top"><h2 class="span-5" id="app-h">One StagePal screen for song and rhythm</h2><div class="span-6 start-7 stack-4"><p class="muted">Your repertoire on the left, the song with chords above the lyrics on the right. The rhythm pedal runs beside it and moves with you from verse to chorus.</p><a class="link" href="#features">See the features</a></div></div>
+      <div class="grid grid--top"><h2 class="span-5" id="app-h">One StagePal screen for song and rhythm</h2><div class="span-6 start-7 stack-4"><p class="muted">Your repertoire on the left, the song with chords above the lyrics on the right. Below it a slim strip with tempo, start and your keys; everything else folds out when you need it.</p><a class="link" href="#features">See the features</a></div></div>
       <div class="ui app sp-app fill" role="img" aria-label="StagePal with the song list, an open song and the rhythm pedal" data-ui-pause-host>
   <div class="app__pane app__pane--list"><div class="sp-list">
     <div class="sp-list__head"><b><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>Demo repertoire</b><span>5 songs</span></div>
@@ -191,8 +204,8 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
   <div class="app__pane app__pane--open"><div class="sp-song">
     <div class="sp-song__head"><div><b>Road Song</b><span>StagePal Demo · Key Em · Capo 2 · Tempo 90 BPM</span></div><span class="sp-tr">−&nbsp;&nbsp;0&nbsp;&nbsp;+</span></div>
     <div class="sp-song__body"><div class="sp-lyrics"><div class="sp-sec">Intro</div><div class="sp-ch">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="sp-sec">Verse</div><div class="sp-ch">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="sp-ly">My heart flies on from branch to branch</div><div class="sp-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="sp-ly">A traveller passing through</div><div class="sp-ch">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="sp-ly">The mountains walk along with me</div><div class="sp-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="sp-ly">The wind calls out my name</div><div class="sp-sec">Chorus</div><div class="sp-ch">G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="sp-ly">Long road, heavy load</div><div class="sp-ch">C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="sp-ly">My song stays on my tongue</div></div>
-      <div class="sp-pedal"><div class="sp-lcd"><span>6/8</span><b>90</b><span>BPM</span><em>CHORUS</em></div><div class="sp-pads"><span class="sp-pad"><i></i>Intro</span><span class="sp-pad"><i></i>Verse</span><span class="sp-pad is-cur"><i></i>Chorus</span><span class="sp-pad"><i></i>Interlude</span></div></div>
-    </div></div></div>
+    </div>
+    <div class="sp-strip"><div class="sp-lcd"><span>6/8</span><b>90</b><span>BPM</span><em>VERSE</em></div><div class="sp-keys"><div class="sp-k"><span class="sp-k__n">KEY 1</span><span class="sp-k__l"><i></i>Start</span><span class="sp-k__l off"><i></i>—</span><span class="sp-k__l"><i></i>Ending</span></div><div class="sp-k"><span class="sp-k__n">KEY 2</span><span class="sp-k__l on"><i></i>Verse</span><span class="sp-k__l off"><i></i>—</span><span class="sp-k__l"><i></i>Intro</span></div><div class="sp-k"><span class="sp-k__n">KEY 3</span><span class="sp-k__l"><i></i>Chorus</span><span class="sp-k__l off"><i></i>—</span><span class="sp-k__l"><i></i>Interlude</span></div><div class="sp-k"><span class="sp-k__n">KEY 4</span><span class="sp-k__l"><i></i>Next song</span><span class="sp-k__l off"><i></i>—</span><span class="sp-k__l"><i></i>Previous song</span></div></div></div></div></div>
 </div>
     </div>
   </section>
@@ -203,7 +216,7 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
         <div class="section-head"><h2 id="feat-h">StagePal tools for the stage. <span class="muted">From import to the final chord.</span></h2></div>
         <div class="grid"><article class="card card--row card--open span-6"><h3>Song import from Word</h3><p>Paste text from Word, a notepad or ChordPro. Titles and chords are recognised, many songs at once.</p><div class="panel panel--dev"><img class="dev-img" src="/img/f_import_en.webp" alt="Import window with two songs found" loading="lazy" width="1000" height="488" srcset="/img/f_import_en-480.webp 480w, /img/f_import_en-800.webp 800w, /img/f_import_en.webp 1000w" sizes="(max-width: 639px) 100vw, 600px"></div></article><article class="card card--row card--open span-6"><h3>Transpose in one tap</h3><p>Shift the key by half steps. Capo and tempo stay saved with each song.</p><div class="panel panel--dev"><img class="dev-img" src="/img/tablet_stage_en.webp" alt="A song two half steps up, chords changed" loading="lazy" width="1400" height="936" srcset="/img/tablet_stage_en-480.webp 480w, /img/tablet_stage_en-800.webp 800w, /img/tablet_stage_en-1200.webp 1200w, /img/tablet_stage_en.webp 1400w" sizes="(max-width: 639px) 100vw, 760px"></div></article></div>
       </div>
-      <div class="grid"><article class="card card--row card--open span-6"><h3>Pedal or keyboard control</h3><p>Bluetooth pedal or keyboard: give every key a single, double and long press.</p><div class="panel panel--dev"><img class="dev-img" src="/img/f_keys_en.webp" alt="Key settings with four keys assigned" loading="lazy" width="1000" height="1114" srcset="/img/f_keys_en-480.webp 480w, /img/f_keys_en-800.webp 800w, /img/f_keys_en.webp 1000w" sizes="(max-width: 639px) 100vw, 600px"></div></article><article class="card card--row card--open span-6"><h3>A repertoire for each gig</h3><p>Separate repertoires for weddings, restaurants or concerts. One song can sit in several, edits apply everywhere.</p><div class="panel panel--dev"><img class="dev-img" src="/img/tablet_home_en.webp" alt="Start screen with repertoires" loading="lazy" width="1400" height="936" srcset="/img/tablet_home_en-480.webp 480w, /img/tablet_home_en-800.webp 800w, /img/tablet_home_en-1200.webp 1200w, /img/tablet_home_en.webp 1400w" sizes="(max-width: 639px) 100vw, 760px"></div></article></div>
+      <div class="grid"><article class="card card--row card--open span-6"><h3>Keys with their actions on screen</h3><p>Every key shows its three actions: tap, double tap, hold. A light marks what is playing. Pedal, keyboard or touch; more than four keys come in pages.</p><div class="panel panel--dev"><img class="dev-img" src="/img/f_strip_en.webp" alt="The strip with four keys and their actions" loading="lazy" width="1400" height="190" srcset="/img/f_strip_en-480.webp 480w, /img/f_strip_en-800.webp 800w, /img/f_strip_en-1200.webp 1200w, /img/f_strip_en.webp 1400w" sizes="(max-width: 639px) 100vw, 600px"></div></article><article class="card card--row card--open span-6"><h3>A repertoire for each gig</h3><p>Separate repertoires for weddings, restaurants or concerts. One song can sit in several, edits apply everywhere.</p><div class="panel panel--dev"><img class="dev-img" src="/img/tablet_home_en.webp" alt="Start screen with repertoires" loading="lazy" width="1400" height="936" srcset="/img/tablet_home_en-480.webp 480w, /img/tablet_home_en-800.webp 800w, /img/tablet_home_en-1200.webp 1200w, /img/tablet_home_en.webp 1400w" sizes="(max-width: 639px) 100vw, 760px"></div></article></div>
     </div>
   </section>
 
@@ -226,7 +239,7 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
   <section class="section" id="faq" aria-labelledby="faq-h">
     <div class="wrap">
       <div class="grid grid--top">
-        <div class="span-5 stack-4"><h2 id="faq-h">Questions</h2><p class="muted">What musicians ask before they start.</p><a class="link" href="mailto:support@stagepal.de">Email a question</a><div class="frame sp-devf sp-phonef"><img class="dev-img" src="/img/phone_en.webp" alt="StagePal on a phone with the rhythm running" loading="lazy" width="520" height="996" srcset="/img/phone_en-480.webp 480w, /img/phone_en.webp 520w" sizes="(max-width: 639px) 300px, 260px"></div></div>
+        <div class="span-5 stack-4"><h2 id="faq-h">Questions</h2><p class="muted">What musicians ask before they start.</p><a class="link" href="mailto:support@stagepal.de">Email a question</a><div class="frame sp-devf sp-phonef"><img class="dev-img" src="/img/tabletp_en.webp" alt="StagePal on a tablet in portrait with the slim strip and four keys" loading="lazy" width="900" height="1152" srcset="/img/tabletp_en-480.webp 480w, /img/tabletp_en-800.webp 800w, /img/tabletp_en.webp 900w" sizes="(max-width: 639px) 300px, 360px"></div></div>
         <div class="faq span-6 start-7"><div class="faq__item"><h3>Do I need an account?</h3><p>No. StagePal works without signing up. Purchases go through your Google Play account.</p></div><div class="faq__item"><h3>Where are my songs stored?</h3><p>Only on your device. A backup saves everything to a file, so you can move to a new device.</p></div><div class="faq__item"><h3>Does it work without internet?</h3><p>Yes. After installing, everything runs offline, rhythm backing included.</p></div><div class="faq__item"><h3>Are song lyrics included?</h3><p>No. You add your own songs or import them from Word, text files and ChordPro.</p></div><div class="faq__item"><h3>Which foot switches work?</h3><p>Any Bluetooth pedal that works like a keyboard, such as page-turner pedals.</p></div><div class="faq__item"><h3>Is it coming to iPhone and iPad?</h3><p>Yes. The iOS version follows after the Android launch.</p></div></div>
       </div>
     </div>
