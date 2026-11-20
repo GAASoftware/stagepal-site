@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en" data-type="software" data-radius="soft" data-ground="sage" data-buttons="solid" data-motion="" class="m-enter mo-js m-enter-done mo-safe" data-mode="dark" style="--g-kl: 1.000; --g-k: 1.000; --g-kp: 0.691; --g-kd: 1.000;" data-tone="dark" data-moments-ready="1" data-ready="1"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StagePal: repertoire app for stage musicians</title>
+<meta name="description" content="Lyrics and chords in large type on your tablet, rhythm backing you run with a foot switch, and a studio for your own rhythms. No account, no ads.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="StagePal: repertoire app for stage musicians">
+<meta property="og:description" content="Lyrics and chords in large type on your tablet, rhythm backing you run with a foot switch, and a studio for your own rhythms. No account, no ads.">
+<meta property="og:image" content="https://stagepal.de/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0c0d10">
+<link rel="canonical" href="https://stagepal.de/en/"><link rel="alternate" hreflang="de" href="https://stagepal.de/"><link rel="alternate" hreflang="en" href="https://stagepal.de/en/"><link rel="alternate" hreflang="tr" href="https://stagepal.de/tr/"><link rel="alternate" hreflang="x-default" href="https://stagepal.de/">
+<meta name="site-kind" content="software">
+<meta name="page-type" content="software">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/system.css">
+<link rel="stylesheet" href="/assets/ui/cards.css">
+<link rel="stylesheet" href="/assets/motion/motion.css">
+<link rel="stylesheet" href="/assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="/assets/layout/layout.css">
+<link rel="stylesheet" href="/assets/icons/icon.css">
+<style>
+:root {
+  --p-bg: #0c0d10; --p-surface: #16181d; --p-ink: #eceef1; --p-muted: #9a9fa8;
+  --p-accent: #ffc233; --p-accent-ink: #0c0d10; --p-action: #ffc233; --p-action-ink: #0c0d10;
+  --p-inv-bg: #eceef1; --p-inv-surface: #dadcdf; --p-inv-ink: #0c0d10; --p-inv-muted: #56585b;
+  --p-inv-accent: #0c0d10; --p-inv-accent-ink: #eceef1; --p-inv-action: #0c0d10; --p-inv-action-ink: #eceef1;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-text: "Figtree", system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 400;
+  --display-tracking: -0.03em;
+  --display-tracking-xl: -0.04em;
+  --display-stretch: 96%;
+}
+</style>
+<link rel="stylesheet" href="/assets/ui/base.css">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="/assets/backgrounds/backgrounds.js"></script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="/assets/moments/moments.js">
+<link rel="modulepreload" href="/assets/moments/lib.js">
+<link rel="modulepreload" href="/assets/moments/line-carries-colour/moment.js">
+<style>
+/* app-frame (sections-library.md, app-frame: the recipe's page CSS) */
+.app.ui { display: grid; grid-template-rows: minmax(0, 1fr); grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); margin-top: var(--s-7); background: var(--u-bg); border: 1px solid var(--u-border); border-radius: var(--u-r); box-shadow: var(--u-shadow); }
+.app > .app__pane { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
+.app > .app__pane + .app__pane { border-left: 1px solid var(--u-line); }
+.app > .app__pane::after { content: ""; position: absolute; inset: auto 0 0 0; height: 64px; background: linear-gradient(transparent, var(--u-bg)); pointer-events: none; }
+@media (min-width: 1024px) and (max-width: 1279px) { .app.ui { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
+@media (max-width: 1023px) {
+  .app.ui { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .app > .app__pane--list { max-height: 252px; }
+  .app > .app__pane--list::after { display: none; }
+  .app > .app__pane + .app__pane { border-left: 0; border-top: 1px solid var(--u-line); }
+}
+@media (max-width: 639px) {
+  .app.ui { grid-template-rows: minmax(0, 1fr); }
+  .app > .app__pane--list { display: none; }
+  .app > .app__pane + .app__pane { border-top: 0; }
+}
+/* inside the window: StagePal's own screen, drawn live */
+.sp-app { --fx-bg: #101114; --fx-ink: #eceef1; --fx-muted: #8e939c; --fx-accent: #ffc233; --fx-accent-ink: #0c0d10; color: var(--u-ink); font-family: var(--font-text); }
+.sp-list { padding: 18px 16px; }
+.sp-list__head { display: flex; justify-content: space-between; align-items: baseline; padding: 0 8px 14px; font-size: 13px; color: var(--u-muted); }
+.sp-list__head b { font: 500 18px/1.2 var(--font-display); color: var(--u-ink); }
+.sp-list ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.sp-row { display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto; column-gap: 12px; padding: 10px 12px; border-radius: 10px; }
+.sp-row__t { font-size: 15px; font-weight: 500; }
+.sp-row__a { grid-row: 2; font-size: 13px; color: var(--u-muted); }
+.sp-row__b { grid-row: 1 / 3; grid-column: 2; align-self: center; font: 500 12px/1 var(--font-mono); border: 1px solid var(--u-line-2); border-radius: 6px; padding: 4px 6px; color: var(--u-muted); }
+.sp-row.is-open { background: var(--u-accent); color: var(--u-accent-ink); }
+.sp-row.is-open .sp-row__a, .sp-row.is-open .sp-row__b { color: var(--u-accent-ink); border-color: color-mix(in oklab, var(--u-accent-ink) 30%, transparent); }
+.sp-song { display: flex; flex-direction: column; height: 100%; }
+.sp-song__head { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--u-line); }
+.sp-song__head b { display: block; font: 500 22px/1.15 var(--font-display); }
+.sp-song__head span { font-size: 13px; color: var(--u-muted); }
+.sp-tr { font: 500 13px/1 var(--font-mono); border: 1px solid var(--u-line-2); border-radius: 8px; padding: 8px 10px; white-space: nowrap; color: var(--u-text-2); }
+.sp-song__body { display: grid; grid-template-columns: minmax(0, 1fr) 190px; min-height: 0; flex: 1; }
+.sp-lyrics { padding: 16px 20px; font-family: var(--font-mono); }
+.sp-lyrics > div { white-space: pre; }
+.sp-sec { font-size: 14px; color: var(--u-muted); margin-top: 8px; }
+.sp-ch { font-size: 15px; font-weight: 500; color: var(--u-accent); line-height: 1.35; }
+.sp-ly { font-size: 17px; line-height: 1.35; }
+.sp-pedal { border-left: 1px solid var(--u-line); padding: 16px 14px; display: grid; align-content: start; gap: 14px; background: linear-gradient(180deg, #24272d, #17181c); }
+.sp-lcd { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 0 8px; padding: 10px 12px; border-radius: 8px; background: #0b1a10; color: #7dff9e; font-family: var(--font-mono); box-shadow: inset 0 2px 6px rgb(0 0 0 / .8); }
+.sp-lcd span { font-size: 12px; } .sp-lcd b { font: 500 30px/1 var(--font-mono); grid-row: 2; } .sp-lcd span:nth-of-type(2) { grid-row: 2; }
+.sp-lcd em { grid-column: 1 / 3; font-style: normal; font-size: 12px; color: #ffc233; }
+.sp-pads { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sp-pad { position: relative; display: grid; place-items: end center; height: 64px; padding-bottom: 6px; border-radius: 9px; font: 500 11px/1 var(--font-mono); color: #8b9099; background: linear-gradient(180deg, #2b2d33, #1c1d21); box-shadow: inset 0 1px 0 rgb(255 255 255 / .08), 0 3px 0 #0c0d0f; }
+.sp-pad i { position: absolute; top: 9px; left: 30%; right: 30%; height: 3px; border-radius: 2px; background: #3a3d44; }
+.sp-pad.is-cur { color: #ffc233; } .sp-pad.is-cur i { background: #ffc233; box-shadow: 0 0 8px rgb(255 194 51 / .8); }
+@media (max-width: 1279px) { .sp-song__body { grid-template-columns: minmax(0, 1fr) 160px; } }
+@media (max-width: 639px) { .sp-song__body { grid-template-columns: minmax(0, 1fr); } .sp-pedal { display: none; } .sp-lyrics { padding: 12px 14px; } .sp-ly, .sp-ch { font-size: 12px; } .nav__langs { display: none; } }
+/* the hero's picture: the client's own screen, not a photograph, so it is shown whole from its top */
+.hero__media--shot img { object-fit: cover; object-position: var(--ly-pos, 50% 0%); }
+/* feature panels hold the client's own screens */
+#features .panel { --p-h: 300px; }
+.panel--shot .frame__img { object-fit: cover; object-position: 0 0; }
+@media (max-width: 639px) { #features .panel { --p-h: 200px; } }
+/* the studio split: the screenshot cut by the frame's right and bottom */
+.sp-shot { position: absolute; left: var(--ax); top: var(--ay); width: 1100px; max-width: none; border-radius: 12px; box-shadow: 0 24px 48px -16px rgb(0 0 0 / .45); }
+@media (max-width: 639px) { .sp-shot { width: 640px; left: 24px; top: 24px; } }
+.plain-facts { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-2); }
+.plain-facts li { color: var(--muted); }
+/* the nav: the client's logo and the language switch */
+.nav__svg { display: block; border-radius: 8px; margin-right: 10px; flex: none; }
+.nav__langs { display: inline-flex; gap: 2px; margin-right: var(--s-2); }
+.nav__lang { min-width: 36px; justify-content: center; font-size: 13px; }
+.nav__lang[aria-current] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+/* legal pages: one reading column */
+.legal-page .legal { padding: calc(var(--nav) + var(--s-9)) 0 var(--s-9); }
+.legal__body { max-width: 720px; }
+.legal__body h1 { font-size: var(--t-h2); margin: var(--s-6) 0 var(--s-6); }
+.legal__body h2 { font: 500 var(--t-card)/1.3 var(--font-text); margin: var(--s-7) 0 var(--s-3); }
+.legal__body p { margin: 0 0 var(--s-4); line-height: 1.7; }
+.legal__body a { color: var(--action); }
+
+.sp-plans { align-items: start; }
+.sp-plans .card--plan { align-self: start; }
+.footer--statement .btn--primary { background: var(--p-action); color: var(--p-action-ink); }
+.sp-payf { --p-h: 458px; height: 100%; min-height: 420px; }
+.sp-pay { position: absolute; left: 50%; top: 32px; width: min(340px, calc(100% - 48px)); transform: translateX(-50%); border-radius: 16px; box-shadow: 0 24px 48px -16px rgb(0 0 0 / .5); }
+.sp-phonef { height: 380px; margin-top: var(--s-6); }
+.sp-phone { position: absolute; left: 50%; top: 32px; width: 240px; transform: translateX(-50%); border-radius: 22px; box-shadow: 0 24px 48px -16px rgb(0 0 0 / .5); }
+.sp-list__head b { display: inline-flex; align-items: center; gap: 6px; }
+html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-action); color: var(--p-action-ink); }
+@media (max-width: 1023px) { .sp-payf { min-height: 360px; } }
+@media (max-width: 400px) { .nav__actions { display: none; } }
+</style>
+<link rel="stylesheet" href="http://127.0.0.1:5200/assets/moments/line-carries-colour/moment.css"></head><body>
+<!-- type: software · deal: hero split, nav nav-mega, close close-type, footer footer-statement, rhythm dark-band, buttons solid, mark: the client's own logo; grounds none; effect none; moment line-carries-colour (#studio) -->
+<header class="nav" data-m-nav="1">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="/en/#top"><svg class="nav__svg" viewBox="0 0 48 48" width="30" height="30" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#1b1e25"></rect><rect x="13" y="8.5" width="22" height="28" rx="3" fill="#ffc233"></rect><circle cx="24" cy="29" r="4.3" fill="#1b1e25"></circle><path d="M26.5 13.5v8.2a2.6 2.6 0 1 1-1.6-2.4v-5.8z" fill="#1b1e25"></path></svg>StagePal</a>
+    <nav class="nav__links" aria-label="Main"><div class="nav__item"><a class="nav__link" href="#features">Features <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><button class="nav__expand" type="button" aria-label="Show Features links" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        <div class="nav__menu"><div class="wrap grid"><div class="menu-col span-3"><p class="t-label">On stage</p><a href="#app">Song and chords<span>Large lyrics, chords above</span></a><a href="#app">Rhythm pedal<span>Intro to ending by foot</span></a><a href="#features">Foot switch<span>Assign any key</span></a></div><div class="menu-col span-3"><p class="t-label">Before the gig</p><a href="#features">Import<span>From Word and ChordPro</span></a><a href="#features">Transpose<span>Change key with a tap</span></a><a href="#features">Repertoires<span>One for each gig</span></a></div>
+          <a class="menu-card span-3 start-10" href="#studio"><div class="panel"><img class="frame__img" src="/img/studio_en.webp" alt="" loading="eager"></div><span class="t-card">Rhythm studio</span><span class="t-small muted">Write your own rhythms</span></a>
+        </div></div></div><div class="nav__item"><a class="nav__link" href="#studio">Studio</a></div><div class="nav__item"><a class="nav__link" href="#pricing">Pricing</a></div><div class="nav__item"><a class="nav__link" href="#faq">Questions</a></div></nav>
+    <div class="nav__actions"><span class="nav__langs"><a class="nav__link nav__lang" href="/" hreflang="de" lang="de">DE</a><a class="nav__link nav__lang" href="/en/" hreflang="en" lang="en" aria-current="true">EN</a><a class="nav__link nav__lang" href="/tr/" hreflang="tr" lang="tr">TR</a></span><a class="btn btn--primary" href="mailto:support@stagepal.de?subject=StagePal%20beta%20test">Join the beta test</a></div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
+  </div>
+</header>
+<main id="top">
+  <section class="hero hero--split is-still is-entered" data-enter="" aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span>Every Pro feature free for 7 days</p>
+        <h1 id="hero-h">Repertoire app for stage musicians</h1>
+        <p class="hero__lead">Lyrics and chords in large type on your tablet, with rhythm backing you run from a foot switch. No account, no ads, works offline.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="mailto:support@stagepal.de?subject=StagePal%20beta%20test">Join the beta test<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a><a class="btn btn--secondary" href="#pricing">See the pricing</a></div>
+      </div>
+      <div class="hero__media hero__media--shot span-6 start-7">
+        <img src="/img/herostage_en.webp" alt="StagePal with the song list, an open song and the rhythm pedal" style="--ly-pos: 50% 0%" fetchpriority="high" width="1000" height="1012" data-source="client" data-subject="StagePal app on a tablet">
+        <div class="ly-float"><div class="ly-float__row"><span class="ly-live">Chorus</span><span>90 BPM</span></div><div class="ly-float__title">Next section by foot switch</div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="app" aria-labelledby="app-h">
+    <div class="wrap">
+      <div class="grid grid--top"><h2 class="span-5" id="app-h">Song, chords and rhythm together</h2><div class="span-6 start-7 stack-4"><p class="muted">Your repertoire on the left, the song with chords above the lyrics on the right. The rhythm pedal runs beside it and moves with you from verse to chorus.</p><a class="link" href="#features">See the features</a></div></div>
+      <div class="ui app sp-app fill" role="img" aria-label="StagePal with the song list, an open song and the rhythm pedal" data-ui-pause-host="">
+  <div class="app__pane app__pane--list"><div class="sp-list">
+    <div class="sp-list__head"><b><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.4"></path></svg>Demo repertoire</b><span>5 songs</span></div>
+    <ul><li class="sp-row is-open"><span class="sp-row__t">Road Song</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">90</span></li><li class="sp-row"><span class="sp-row__t">Sunday Morning</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">112</span></li><li class="sp-row"><span class="sp-row__t">Stage Lights</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">72</span></li><li class="sp-row"><span class="sp-row__t">An Evening by the Shore</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">100</span></li><li class="sp-row"><span class="sp-row__t">Wave the Scarf</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">118</span></li><li class="sp-row"><span class="sp-row__t">Road Song</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">90</span></li><li class="sp-row"><span class="sp-row__t">Sunday Morning</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">112</span></li><li class="sp-row"><span class="sp-row__t">Stage Lights</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">72</span></li><li class="sp-row"><span class="sp-row__t">An Evening by the Shore</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">100</span></li><li class="sp-row"><span class="sp-row__t">Wave the Scarf</span><span class="sp-row__a">StagePal Demo</span><span class="sp-row__b">118</span></li></ul></div></div>
+  <div class="app__pane app__pane--open"><div class="sp-song">
+    <div class="sp-song__head"><div><b>Road Song</b><span>StagePal Demo · Key Em · Capo 2 · Tempo 90 BPM</span></div><span class="sp-tr">−&nbsp;&nbsp;0&nbsp;&nbsp;+</span></div>
+    <div class="sp-song__body"><div class="sp-lyrics"><div class="sp-sec">Intro</div><div class="sp-ch">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="sp-sec">Verse</div><div class="sp-ch">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="sp-ly">My heart flies on from branch to branch</div><div class="sp-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="sp-ly">A traveller passing through</div><div class="sp-ch">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="sp-ly">The mountains walk along with me</div><div class="sp-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="sp-ly">The wind calls out my name</div><div class="sp-sec">Chorus</div><div class="sp-ch">G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="sp-ly">Long road, heavy load</div><div class="sp-ch">C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="sp-ly">My song stays on my tongue</div></div>
+      <div class="sp-pedal"><div class="sp-lcd"><span>6/8</span><b>90</b><span>BPM</span><em>CHORUS</em></div><div class="sp-pads"><span class="sp-pad"><i></i>Intro</span><span class="sp-pad"><i></i>Verse</span><span class="sp-pad is-cur"><i></i>Chorus</span><span class="sp-pad"><i></i>Interlude</span></div></div>
+    </div></div></div>
+</div>
+    </div>
+  </section>
+
+  <section class="section g2" id="features" aria-labelledby="feat-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head"><h2 id="feat-h">Tools for the stage. <span class="muted">From import to foot switch.</span></h2></div>
+        <div class="grid"><article class="card card--row card--open span-6"><h3>Imports songs from Word</h3><p>Paste text from Word, a notepad or ChordPro. Titles and chords are recognised, many songs at once.</p><div class="panel panel--shot"><img class="frame__img" src="/img/import_en.webp" alt="Import window with two songs found" loading="eager"></div></article><article class="card card--row card--open span-6"><h3>Transposes with a tap</h3><p>Shift the key by half steps. Capo and tempo stay saved with each song.</p><div class="panel panel--shot"><img class="frame__img" src="/img/transpose_en.webp" alt="A song two half steps up, chords changed" loading="eager"></div></article></div>
+      </div>
+      <div class="grid"><article class="card card--row card--open span-6"><h3>Listens to your foot switch</h3><p>Bluetooth pedal or keyboard: give every key a single, double and long press.</p><div class="panel panel--shot"><img class="frame__img" src="/img/keys_en.webp" alt="Key settings with four keys assigned" loading="eager"></div></article><article class="card card--row card--open span-6"><h3>Keeps your gigs apart</h3><p>Separate repertoires for weddings, restaurants or concerts. One song can sit in several, edits apply everywhere.</p><div class="panel panel--shot"><img class="frame__img" src="/img/reps_en.webp" alt="Start screen with repertoires" loading="eager"></div></article></div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing" aria-labelledby="price-h">
+    <div class="wrap">
+      <div class="grid grid--top"><h2 class="span-5" id="price-h">Pricing</h2><div class="span-6 start-7 stack-4"><p class="muted">Try every Pro feature free for seven days, then decide. Every plan: no account, no ads, all offline.</p><a class="link" href="#faq">Read the questions</a></div></div>
+      <div class="grid sp-plans"><article class="card card--plan span-4"><h3>Free</h3><p class="t-small muted">To try it out</p><p class="price"><span class="t-stat">€0</span></p><ul class="checks"><li>Up to 20 songs</li><li>Lyrics and chords</li><li>Multiple repertoires</li><li>Import from Word and ChordPro</li><li>Foot switch and keyboard</li></ul><a class="btn btn--secondary" href="#features">See the features</a></article><article class="card card--plan is-featured span-4"><h3>Pro</h3><p class="t-small muted">For every gig · 7 days free</p><p class="price"><span class="t-stat">€2.99</span><span class="t-small muted">a month</span></p><ul class="checks"><li>Unlimited songs</li><li>Rhythm backing with every sound</li><li>Rhythm studio and your own sounds</li><li>Transpose</li><li>Or €19.99 a year, €39.99 once</li></ul><a class="btn btn--secondary" href="#studio">Rhythm studio</a></article><div class="frame frame--split sp-payf span-4"><div class="stage stage--fade-b"><img class="at-rise sp-pay" src="/img/pay_en.webp" alt="The Pro offer in the app with yearly, monthly and lifetime price" loading="eager" width="796" height="1138"></div></div></div>
+    </div>
+  </section>
+
+  <section class="section ground-inverse mo-lc is-live mo-lc--base is-open" id="studio" aria-labelledby="studio-h" data-moment="line-carries-colour" data-moment-opts="{&quot;from&quot;: &quot;base&quot;}" data-moment-mounted="1" style="--mo-cut: 0.0px; --mo-below: 0.0px;">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-6"><h2 id="studio-h" style="">A rhythm studio for your own rhythms</h2><p class="t-lead" style="">Write the intro, verse, chorus, fill and ending. Drag each hit's velocity up or down, name your channels and play the whole flow.</p><ul class="plain-facts"><li style="">Cajon and drum kit sounds</li><li style="">Odd meters like 9/8 and 7/8</li><li style="">Your own sounds from audio files</li></ul><a class="link" href="#pricing" style="">See the pricing</a></div>
+        <div class="frame frame--split span-6 start-7" style=""><div class="stage stage--fade-br"><img class="at-corner to-edge sp-shot" src="/img/studio_en.webp" alt="Rhythm studio with channels and velocity" loading="eager" width="1600" height="1000" style="--ax:56px;--ay:56px"></div></div>
+      </div>
+    </div>
+  <div class="mo-lc__stage" aria-hidden="true"><div class="mo-lc__cover"></div><div class="mo-lc__line"></div></div></section>
+
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-4"><h2 id="faq-h">Questions</h2><p class="muted">What musicians ask before they start.</p><a class="link" href="mailto:support@stagepal.de">Email a question</a><div class="frame frame--split sp-phonef"><div class="stage stage--fade-b"><img class="at-rise sp-phone" src="/img/phone_en.webp" alt="StagePal on a phone with the rhythm running" loading="eager" width="780" height="1688"></div></div></div>
+        <div class="faq span-6 start-7"><div class="faq__item"><h3>Do I need an account?</h3><p>No. StagePal works without signing up. Purchases go through your Google Play account.</p></div><div class="faq__item"><h3>Where are my songs stored?</h3><p>Only on your device. A backup saves everything to a file, so you can move to a new device.</p></div><div class="faq__item"><h3>Does it work without internet?</h3><p>Yes. After installing, everything runs offline, rhythm backing included.</p></div><div class="faq__item"><h3>Are song lyrics included?</h3><p>No. You add your own songs or import them from Word, text files and ChordPro.</p></div><div class="faq__item"><h3>Which foot switches work?</h3><p>Any Bluetooth pedal that works like a keyboard, such as page-turner pedals.</p></div><div class="faq__item"><h3>Is it coming to iPhone and iPad?</h3><p>Yes. The iOS version follows after the Android launch.</p></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer closing footer--statement" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head"><h2 id="close-h">Test StagePal before launch</h2><p>For the test before the Google Play launch we are looking for musicians with an Android device. Write us a line about the device you play on.</p></div>
+      <a class="btn btn--primary btn--xl btn--wide" href="mailto:support@stagepal.de?subject=StagePal%20beta%20test">Join the beta test<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4"><a class="nav__logo" href="/en/#top"><svg class="nav__svg" viewBox="0 0 48 48" width="30" height="30" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#1b1e25"></rect><rect x="13" y="8.5" width="22" height="28" rx="3" fill="#ffc233"></rect><circle cx="24" cy="29" r="4.3" fill="#1b1e25"></circle><path d="M26.5 13.5v8.2a2.6 2.6 0 1 1-1.6-2.4v-5.8z" fill="#1b1e25"></path></svg>StagePal</a><p class="footer__lede">Stage apps from Dillingen, Germany</p><p><a class="link link--mail" href="mailto:support@stagepal.de">support@stagepal.de</a></p></div>
+        <div class="span-2 footer__col"><h3>App</h3><ul><li><a href="#features">Features</a></li><li><a href="#studio">Studio</a></li><li><a href="#pricing">Pricing</a></li></ul></div><div class="span-2 footer__col"><h3>Help</h3><ul><li><a href="#faq">Questions</a></li><li><a href="#contact">Support</a></li></ul></div><div class="span-2 footer__col"><h3>Legal</h3><ul><li><a href="/en/imprint">Imprint</a></li><li><a href="/en/privacy">Privacy</a></li><li><a href="/en/terms">Terms</a></li></ul></div><div class="span-2 footer__col"><h3>Language</h3><ul><li><a href="/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/en/" hreflang="en" lang="en">English</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li></ul></div>
+      </div>
+      <div class="footer__legal"><span>© 2026 AGA Software</span><div class="socials"></div></div>
+    </div>
+  </div>
+</footer>
+<script type="module" src="/assets/system.js"></script>
+<script type="module" src="/assets/motion/motion.js"></script>
+<script type="module" src="/assets/layout/layout.js"></script>
+
+</body></html>
