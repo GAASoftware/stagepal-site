@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://stagepal.de/</loc></url>
-  <url><loc>https://stagepal.de/impressum.html</loc></url>
-  <url><loc>https://stagepal.de/datenschutz.html</loc></url>
-  <url><loc>https://stagepal.de/nutzungsbedingungen.html</loc></url>
-  <url><loc>https://stagepal.de/en/</loc></url>
-  <url><loc>https://stagepal.de/en/imprint.html</loc></url>
-  <url><loc>https://stagepal.de/en/privacy.html</loc></url>
-  <url><loc>https://stagepal.de/en/terms.html</loc></url>
+  <url><loc>https://stagepal.de/imprint.html</loc></url>
+  <url><loc>https://stagepal.de/privacy.html</loc></url>
+  <url><loc>https://stagepal.de/terms.html</loc></url>
+  <url><loc>https://stagepal.de/de/</loc></url>
+  <url><loc>https://stagepal.de/de/impressum.html</loc></url>
+  <url><loc>https://stagepal.de/de/datenschutz.html</loc></url>
+  <url><loc>https://stagepal.de/de/nutzungsbedingungen.html</loc></url>
   <url><loc>https://stagepal.de/tr/</loc></url>
   <url><loc>https://stagepal.de/tr/kunye.html</loc></url>
   <url><loc>https://stagepal.de/tr/gizlilik.html</loc></url>
