@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Imprint · StagePal</title>
-<meta name="description" content="Lyrics and chords in large type on your tablet, rhythm backing you run with a foot switch, and a studio for your own rhythms. No account, no ads.">
+<meta name="description" content="Everything the stage needs in one app: lyrics and chords in large type on your tablet, rhythm backing and a studio for your own rhythms. No account, no ads.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Imprint · StagePal">
-<meta property="og:description" content="Lyrics and chords in large type on your tablet, rhythm backing you run with a foot switch, and a studio for your own rhythms. No account, no ads.">
+<meta property="og:description" content="Everything the stage needs in one app: lyrics and chords in large type on your tablet, rhythm backing and a studio for your own rhythms. No account, no ads.">
 <meta property="og:image" content="https://stagepal.de/share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -134,6 +134,23 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
 @media (min-width: 640px) and (max-width: 1023px) { #pricing { --h: 2; } #faq { --h: 2; } }
 @media (max-width: 639px) { #pricing { --hm: 2; } #faq { --hm: 2; } #studio .frame--split { aspect-ratio: auto; height: 240px; } .nav .nav__actions { margin-left: auto; } }
 @media (max-width: 639px) { .sp-phonef { height: 580px; } .sp-phone { width: 270px; } }
+/* device mockups: the app's whole screen in a tablet or phone, never cut */
+.dev-img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.hero__media--shot { background: radial-gradient(60% 55% at 50% 45%, rgb(255 194 51 / .10), transparent 70%); }
+.hero__media--shot img.dev-img { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; object-fit: contain; object-position: center; }
+.panel--dev { padding: 20px; display: grid; place-items: center; background: radial-gradient(80% 70% at 50% 20%, #23262d, #15171b); }
+.panel--dev .dev-img { position: absolute; inset: 20px; width: calc(100% - 40px); height: calc(100% - 40px); object-fit: contain; filter: drop-shadow(0 18px 30px rgb(0 0 0 / .45)); }
+.panel--dev { position: relative; }
+.sp-devf { display: grid; place-items: center; padding: 24px; background: radial-gradient(70% 60% at 50% 40%, #23262d, #15171b); }
+.sp-devf .dev-img { max-height: 100%; }
+.sp-payf { --p-h: auto; align-self: stretch; height: auto; min-height: 420px; }
+.sp-payf .dev-img { position: absolute; inset: 24px; width: calc(100% - 48px); height: calc(100% - 48px); filter: drop-shadow(0 18px 30px rgb(0 0 0 / .45)); }
+.sp-studiof { aspect-ratio: 1 / 1; padding: 16px; }
+#studio .sp-studiof { background: radial-gradient(70% 60% at 50% 40%, rgb(0 0 0 / .06), transparent 70%); }
+.sp-phonef { height: 460px; margin-top: var(--s-6); padding: 16px; }
+.sp-phonef .dev-img { position: absolute; inset: 16px; width: calc(100% - 32px); height: calc(100% - 32px); }
+@media (max-width: 639px) { .sp-phonef { height: 520px; } .sp-studiof { aspect-ratio: 3 / 2; } }
+@media (max-width: 639px) { .hero--split .hero__kicker { display: none; } .sp-payf { min-height: 420px; } }
 </style>
 </head><body class="legal-page">
 <header class="nav">
@@ -141,7 +158,7 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
     <a class="skip-link" href="#top">Skip to content</a>
     <a class="nav__logo" href="/#top"><svg class="nav__svg" viewBox="0 0 48 48" width="30" height="30" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#1b1e25"/><rect x="13" y="8.5" width="22" height="28" rx="3" fill="#ffc233"/><circle cx="24" cy="29" r="4.3" fill="#1b1e25"/><path d="M26.5 13.5v8.2a2.6 2.6 0 1 1-1.6-2.4v-5.8z" fill="#1b1e25"/></svg>StagePal</a>
     <nav class="nav__links" aria-label="Main"><div class="nav__item"><a class="nav__link" href="/#features">Features <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="nav__menu"><div class="wrap grid"><div class="menu-col span-3"><p class="t-label">On stage</p><a href="/#app">Song and chords<span>Large lyrics, chords above</span></a><a href="/#app">Rhythm pedal<span>Intro to ending by foot</span></a><a href="/#features">Foot switch<span>Assign any key</span></a></div><div class="menu-col span-3"><p class="t-label">Before the gig</p><a href="/#features">Import<span>From Word and ChordPro</span></a><a href="/#features">Transpose<span>Change key with a tap</span></a><a href="/#features">Repertoires<span>One for each gig</span></a></div>
+        <div class="nav__menu"><div class="wrap grid"><div class="menu-col span-3"><p class="t-label">On stage</p><a href="/#app">Song and chords<span>Large lyrics, chords above</span></a><a href="/#app">Rhythm pedal<span>From intro to ending</span></a><a href="/#features">Foot switch<span>Assign any key</span></a></div><div class="menu-col span-3"><p class="t-label">Before the gig</p><a href="/#features">Import<span>From Word and ChordPro</span></a><a href="/#features">Transpose<span>Change key with a tap</span></a><a href="/#features">Repertoires<span>One for each gig</span></a></div>
           <a class="menu-card span-3 start-10" href="/#studio"><div class="panel"><img class="frame__img" src="/img/studio_en.webp" alt="" loading="lazy" width="1600" height="1000" srcset="/img/studio_en-480.webp 480w, /img/studio_en-800.webp 800w, /img/studio_en-1200.webp 1200w, /img/studio_en.webp 1600w" sizes="(max-width: 639px) calc(100vw - 48px), 320px"></div><span class="t-card">Rhythm studio</span><span class="t-small muted">Write your own rhythms</span></a>
         </div></div></div><div class="nav__item"><a class="nav__link" href="/#studio">Studio</a></div><div class="nav__item"><a class="nav__link" href="/#pricing">Pricing</a></div><div class="nav__item"><a class="nav__link" href="/#faq">Questions</a></div></nav>
     <div class="nav__actions"><span class="nav__langs"><a class="nav__link nav__lang" href="/imprint" hreflang="en" lang="en" aria-current="true">EN</a><a class="nav__link nav__lang" href="/de/impressum" hreflang="de" lang="de">DE</a><a class="nav__link nav__lang" href="/tr/kunye" hreflang="tr" lang="tr">TR</a><a class="nav__link nav__lang" href="/fr/mentions-legales" hreflang="fr" lang="fr">FR</a></span><a class="btn btn--primary" href="mailto:support@stagepal.de?subject=StagePal%20beta%20test">Join the beta test</a></div>
