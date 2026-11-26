@@ -173,13 +173,11 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
 .lv-top b { display: block; font: 600 2.6cqw/1.1 var(--font-display); }
 .lv-top span { font-size: 1.5cqw; color: #8e939c; }
 .lv-fit { font: 700 1.5cqw/1 var(--font-text) !important; color: #141414 !important; background: #ffc233; border-radius: 1cqw; padding: .9cqw 1.6cqw; }
-.lv-lyr { position: relative; overflow: hidden; padding: 0 2.6cqw; mask-image: linear-gradient(transparent, #000 10%, #000 85%, transparent); }
-.lv-roll { padding: 2.4cqw 0 12cqw; transition: transform .7s cubic-bezier(.3, .7, .2, 1); font-family: var(--font-mono); }
-.lv-roll > div { white-space: pre; }
-.lv-sec { font-size: 1.6cqw; color: #8e939c; margin-top: 1cqw; }
-.lv-ch { font-size: 1.9cqw; font-weight: 600; color: #ffc233; line-height: 1.3; }
-.lv-ly { font-size: 2.3cqw; line-height: 1.35; color: #b8bcc4; transition: color .3s; }
-.lv-ly.cur { color: #fff; }
+.lv-lyr { padding: 1.6cqw 2.6cqw; font-family: var(--font-mono); display: flex; flex-direction: column; justify-content: center; }
+.lv-lyr > div { white-space: pre; }
+.lv-sec { font-size: 1.25cqw; line-height: 1.2; color: #8e939c; margin-top: .5cqw; }
+.lv-ch { font-size: 1.6cqw; font-weight: 600; color: #ffc233; line-height: 1.15; }
+.lv-ly { font-size: 1.95cqw; line-height: 1.2; color: #eceef1; }
 .lv-strip { display: grid; grid-template-columns: 19cqw minmax(0, 1fr); gap: 1.4cqw; padding: 1.4cqw 1.8cqw 1.8cqw; background: linear-gradient(180deg, #24272d, #16181c); border-top: 1px solid #2c2f36; }
 .lv-lcd { display: grid; grid-template-columns: auto 1fr; align-content: center; column-gap: .8cqw; padding: 1cqw 1.4cqw; border-radius: 1.2cqw; background: #0b1a10; color: #7dff9e; font-family: var(--font-mono); box-shadow: inset 0 .3cqw .9cqw rgb(0 0 0 / .8); }
 .lv-lcd__t { font-size: 1.3cqw; grid-column: 1 / 3; }
@@ -208,9 +206,26 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
 .lv-pk.down { transform: translateY(.6cqw); box-shadow: 0 .1cqw 0 #0b0c0e; }
 .lv-pk.down::after { box-shadow: 0 0 0 .35cqw rgb(255 59 48 / .9), 0 0 2.4cqw rgb(255 59 48 / .7); transition: none; }
 .lv-pad__s { display: grid; place-items: center; width: 2.6cqw; height: 4cqw; border-radius: .8cqw; background: #2a2c31; color: #9aa0a9; font: 700 1.4cqw/1 var(--font-mono); }
-@media (max-width: 639px) { .lv { gap: 5cqw; } .lv-k__l.off { display: none; } .lv-k__l { font-size: 2cqw; } .lv-k__n { font-size: 1.6cqw; } .lv-ly { font-size: 3cqw; } .lv-ch { font-size: 2.5cqw; } .lv-sec { font-size: 2.2cqw; } .lv-top b { font-size: 3.4cqw; } .lv-top span, .lv-fit { font-size: 2cqw !important; } }
+@media (max-width: 639px) { .lv { gap: 5cqw; } .lv-k__l.off { display: none; } .lv-k__l { font-size: 2cqw; } .lv-k__n { font-size: 1.6cqw; } .lv-scr { aspect-ratio: 16 / 13; } .lv-lyr [data-s="0"] { display: none; } .lv-ly { font-size: 3cqw; } .lv-ch { font-size: 2.5cqw; } .lv-sec { font-size: 2.1cqw; } .lv-top b { font-size: 3.4cqw; } .lv-top span, .lv-fit { font-size: 2cqw !important; } }
+
+/* ==== opening: the yellow cajon lands, "StagePal" slides out from behind it (once per visit) ==== */
+.intro { display: none; }
+html.has-intro .intro { display: grid; place-items: center; position: fixed; inset: 0; z-index: 1000; background: #0f1013; cursor: pointer; animation: introOut .45s cubic-bezier(.4, 0, .2, 1) 1.75s both; }
+html.has-intro.intro-skip .intro { animation: introOut .25s ease both; }
+.intro__in { display: flex; align-items: center; gap: clamp(10px, 1.6vw, 18px); }
+.intro__cj { position: relative; z-index: 2; width: clamp(44px, 6vw, 72px); height: auto; filter: drop-shadow(0 10px 30px rgb(255 194 51 / .28)); animation: cjIn .55s cubic-bezier(.2, 1.4, .4, 1) .1s both, cjHit .32s cubic-bezier(.3, 0, .3, 1) .72s; transform-origin: 50% 90%; }
+.intro__clip { display: block; overflow: hidden; max-width: 0; font-size: clamp(38px, 6.4vw, 78px); animation: clipOpen .7s cubic-bezier(.16, 1, .3, 1) .78s forwards; margin-left: calc(-1 * clamp(10px, 1.6vw, 18px)); padding: .12em 0 .18em clamp(10px, 1.6vw, 18px); }
+.intro__w { display: block; white-space: nowrap; font: 600 1em/1 var(--font-display); letter-spacing: -0.035em; color: #f4f5f7; animation: wOut .7s cubic-bezier(.16, 1, .3, 1) .78s both; }
+@keyframes cjIn { from { opacity: 0; transform: translateY(18px) scale(.6) rotate(-8deg); } to { opacity: 1; transform: none; } }
+@keyframes cjHit { 40% { transform: scale(.92, 1.06); } 70% { transform: scale(1.04, .97); } }
+@keyframes wOut { from { transform: translateX(-105%); opacity: 0; } 30% { opacity: 1; } to { transform: none; opacity: 1; } }
+@keyframes clipOpen { to { max-width: 5.2em; } }
+@keyframes introOut { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+@media (prefers-reduced-motion: reduce) { html.has-intro .intro { display: none; } }
 </style>
 </head><body>
+<div class="intro" aria-hidden="true"><div class="intro__in"><svg class="intro__cj" viewBox="0 0 22 28"><rect width="22" height="28" rx="3" fill="#ffc233"/><circle cx="11" cy="20.5" r="4.3" fill="#1b1e25"/><path d="M13.5 5v8.2a2.6 2.6 0 1 1-1.6-2.4V5z" fill="#1b1e25"/></svg><span class="intro__clip"><span class="intro__w">StagePal</span></span></div></div>
+<script>try{if(!sessionStorage.getItem("sp.intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("has-intro");sessionStorage.setItem("sp.intro","1");document.querySelector(".intro").addEventListener("click",function(){document.documentElement.classList.add("intro-skip")})}}catch(e){}</script>
 <!-- type: software · deal: hero split, nav nav-mega, close close-type, footer footer-statement, rhythm dark-band, buttons solid, mark: the client's own logo; grounds none; effect none; moment line-carries-colour (#studio) -->
 <header class="nav">
   <div class="wrap nav__bar">
@@ -237,7 +252,7 @@ html .footer.closing.footer--statement .btn.btn--primary { background: var(--p-a
         <div class="lv" data-secs="GIRIŞ|KITA|NAKARAT" data-ui-pause-host>
           <div class="lv-tab"><div class="lv-scr">
             <div class="lv-top"><div><b>Yol Türküsü</b><span>StagePal Demo · Em · 92 BPM</span></div><span class="lv-fit">Fit</span></div>
-            <div class="lv-lyr"><div class="lv-roll"><div class="lv-sec" data-s="0">Giriş</div><div class="lv-ch">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="lv-sec" data-s="1">Kıta</div><div class="lv-ch">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="lv-ly" data-s="1">Gönlüm uçar daldan dala</div><div class="lv-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="lv-ly" data-s="1">Bir yolcuyum geçip giden</div><div class="lv-ch">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="lv-ly" data-s="1">Dağlar benimle yürür</div><div class="lv-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="lv-ly" data-s="1">Rüzgâr adımı söyler</div><div class="lv-sec" data-s="2">Nakarat</div><div class="lv-ch">G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="lv-ly" data-s="2">Uzun yol, ağır yük</div><div class="lv-ch">C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="lv-ly" data-s="2">Türküm dilimde kalır</div></div></div>
+            <div class="lv-lyr"><div class="lv-sec" data-s="0">Giriş</div><div class="lv-ch" data-s="0">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="lv-sec" data-s="1">Kıta</div><div class="lv-ch" data-s="1">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="lv-ly" data-s="1">Gönlüm uçar daldan dala</div><div class="lv-ch" data-s="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="lv-ly" data-s="1">Bir yolcuyum geçip giden</div><div class="lv-ch" data-s="1">Em&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="lv-ly" data-s="1">Dağlar benimle yürür</div><div class="lv-ch" data-s="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="lv-ly" data-s="1">Rüzgâr adımı söyler</div><div class="lv-sec" data-s="2">Nakarat</div><div class="lv-ch" data-s="2">G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D</div><div class="lv-ly" data-s="2">Uzun yol, ağır yük</div><div class="lv-ch" data-s="2">C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em</div><div class="lv-ly" data-s="2">Türküm dilimde kalır</div></div>
             <div class="lv-strip">
               <div class="lv-lcd"><span class="lv-lcd__t">4/4</span><b>92</b><span class="lv-lcd__u">BPM</span><em class="lv-lcd__s">KITA</em><span class="lv-beats"><i></i><i></i><i></i><i></i></span></div>
               <div class="lv-keys"><div class="lv-k" data-k="0"><span class="lv-k__n">TUŞ 1</span><span class="lv-k__l" data-l="s"><i></i>Başlat</span><span class="lv-k__l off"><i></i>—</span><span class="lv-k__l" data-l="h"><i></i>Bitiş</span></div><div class="lv-k" data-k="1"><span class="lv-k__n">TUŞ 2</span><span class="lv-k__l" data-l="s"><i></i>Kıta</span><span class="lv-k__l off"><i></i>—</span><span class="lv-k__l" data-l="h"><i></i>Giriş</span></div><div class="lv-k" data-k="2"><span class="lv-k__n">TUŞ 3</span><span class="lv-k__l" data-l="s"><i></i>Nakarat</span><span class="lv-k__l off"><i></i>—</span><span class="lv-k__l" data-l="h"><i></i>Ara</span></div><div class="lv-k" data-k="3"><span class="lv-k__n">TUŞ 4</span><span class="lv-k__l" data-l="s"><i></i>Sonraki şarkı</span><span class="lv-k__l off"><i></i>—</span><span class="lv-k__l" data-l="h"><i></i>Önceki şarkı</span></div></div>
